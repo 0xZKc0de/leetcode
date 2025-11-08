@@ -29,4 +29,4 @@ class Solution:
             current_x_sum = get_x_sum(subarray)
             answer.append(current_x_sum)
             
-        return answer
+        return answers
