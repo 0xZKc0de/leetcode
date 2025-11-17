@@ -22,7 +22,7 @@ jobs:
           python-version: '3.x'
         
       - name: Update README problem counts
-        shell: python  
+        shell: python
         run: |
           import os
           import re
@@ -48,14 +48,16 @@ jobs:
               content = f.read()
 
           # Replace the counts using regex
-          content = re.sub(r"(\- \*\*Easy\*\*: )(\d+)( problems)", f"\\1{easy_count}\\3", content)
-          content = re.sub(r"(\- \*\*Medium\*\*: )(\d+)( problems)", f"\\1{medium_count}\\3", content)
+          content = re.sub(r"(\- \*\*Easy\*\*: )(\d+)( problems)", f"\\g<1>{easy_count}\\g<3>", content)
+          content = re.sub(r"(\- \*\*Medium\*\*: )(\d+)( problems)", f"\\g<1>{medium_count}\\g<3>", content)
           
           # Special handling for 'contest' singular/plural
           contest_text = "contest participation" if contest_count == 1 else "contest participations"
+          
+          # === THIS IS THE FIXED LINE ===
           content = re.sub(
               r"(\- \*\*Contest\*\*: )(\d+)( contest participation[s]?)",
-              f"\\1{contest_count} {contest_text}",
+              f"\\g<1>{contest_count} {contest_text}",
               content
           )
 
@@ -64,7 +66,7 @@ jobs:
               f.write(content)
 
           print(f"Updated counts: Easy={easy_count}, Medium={medium_count}, Contest={contest_count}")
-          
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
