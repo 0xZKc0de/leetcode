@@ -8,7 +8,7 @@ A comprehensive collection of my LeetCode problem solutions, organized by diffic
 
 ## Statistics
 
-![My LeetCode Stats]([URL_OR_PATH_TO_YOUR_PROFILE_SCREENSHOT_HERE])
+![My LeetCode Stats]([./profile.png])
 
 ## Repository Structure
 
