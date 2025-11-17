@@ -1,0 +1,80 @@
+name: Update LeetCode Stats in README
+
+on:
+  push:
+    branches:
+      - main  
+jobs:
+  
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Update README problem counts
+        run: |
+          import os
+          import re
+
+          # Function to count subdirectories
+          def count_subdirs(path):
+              if not os.path.exists(path):
+                  return 0
+              try:
+                  return len([name for name in os.listdir(path) if os.path.isdir(os.path.join(path, name))])
+              except OSError:
+                  return 0
+
+          # Count the problems
+          easy_count = count_subdirs('easy')
+          medium_count = count_subdirs('medium')
+          contest_count = count_subdirs('contest')
+
+          readme_path = 'README.md'
+
+          # Read the README
+          with open(readme_path, 'r', encoding='utf-8') as f:
+              content = f.read()
+
+          # Replace the counts using regex
+          content = re.sub(r"(\- \*\*Easy\*\*: )(\d+)( problems)", f"\\1{easy_count}\\3", content)
+          content = re.sub(r"(\- \*\*Medium\*\*: )(\d+)( problems)", f"\\1{medium_count}\\3", content)
+          
+          # Special handling for 'contest' singular/plural
+          contest_text = "contest participation" if contest_count == 1 else "contest participations"
+          content = re.sub(
+              r"(\- \*\*Contest\*\*: )(\d+)( contest participation[s]?)",
+              f"\\1{contest_count} {contest_text}",
+              content
+          )
+
+          # Write the updated content back to the README
+          with open(readme_path, 'w', encoding='utf-8') as f:
+              f.write(content)
+
+          print(f"Updated counts: Easy={easy_count}, Medium={medium_count}, Contest={contest_count}")
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          
+          # Check if there are any changes
+          if git diff --staged --quiet; then
+            echo "No changes to README.md. Skipping commit."
+          else
+            git commit -m "🤖 Auto-update LeetCode problem counts"
+            git push
+            echo "README.md updated and pushed."
+          fi
