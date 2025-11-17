@@ -77,7 +77,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to README.md. Skipping commit."
           else
-            git commit -m "🤖 Auto-update LeetCode problem counts"
+            git commit -m "Auto-update LeetCode problem counts"
             git push
             echo "README.md updated and pushed."
           fi
