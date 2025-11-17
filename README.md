@@ -4,11 +4,11 @@ A comprehensive collection of my LeetCode problem solutions, organized by diffic
 
 ## LeetCode Profile
 
-**[View My LeetCode Profile](https://leetcode.com/u/UPkLskHSOz/])**
+**[View My LeetCode Profile](https://leetcode.com/u/UPkLskHSOz/)**
 
 ## Statistics
 
-![My LeetCode Stats]([URL_OR_PATH_TO_YOUR_PROFILE_SCREENSHOT_HERE])
+![My LeetCode Stats](profile.png)
 
 ## Repository Structure
 
@@ -16,7 +16,7 @@ The repository is organized by problem difficulty, with each problem stored in i
 ```
 leetcode/
 ├── contest/
-│   └── first_context(474)/
+│   └── first_context(474)/Q
 ├── easy/
 │   ├── 1143/
 │   ├── 118/
