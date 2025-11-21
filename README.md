@@ -31,6 +31,7 @@ leetcode/
 
 - **easy/** - Easy difficulty problems
 - **medium/** - Medium difficulty problems
+- **Hard/** - Hard difficulty problems
 - **contest/** - Solutions from LeetCode contests
 
 Each directory is named after the problem number and contains the solution implementation.
@@ -43,6 +44,7 @@ Each directory is named after the problem number and contains the solution imple
 
 - **Easy**: 26 problems
 - **Medium**: 17 problems
+- **Hard**: 1 problem
 - **Contest**: 1 contest participation
 
 ## Objectives
