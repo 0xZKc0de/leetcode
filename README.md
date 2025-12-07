@@ -42,7 +42,7 @@ Each directory is named after the problem number and contains the solution imple
 
 ## Problem Count
 
-- **Easy**: 32 problems
+- **Easy**: 33 problems
 - **Medium**: 23 problems
 - **Hard**: 1 problem
 - **Contest**: 1 contest participation
