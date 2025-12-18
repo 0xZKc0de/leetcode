@@ -43,7 +43,7 @@ Each directory is named after the problem number and contains the solution imple
 ## Problem Count
 
 - **Easy**: 35 problems
-- **Medium**: 26 problems
+- **Medium**: 27 problems
 - **Hard**: 1 problem
 - **Contest**: 1 contest participation
 
