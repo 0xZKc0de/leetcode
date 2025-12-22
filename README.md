@@ -38,7 +38,7 @@ Each directory is named after the problem number and contains the solution imple
 
 ## Technology
 
-**Python 3** - All solutions are implemented in Python 3, focusing on clean, efficient code with clear algorithmic thinking.
+**Python 3** - All solutions are implemented in Python 3 and C++, focusing on clean, efficient code with clear algorithmic thinking.
 
 ## Problem Count
 
